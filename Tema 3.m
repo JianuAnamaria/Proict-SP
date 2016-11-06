@@ -1,0 +1,40 @@
+n = input('Subpunct=')
+
+switch n
+    case 'a'
+        v = [-1,1]
+    case 'b'
+        v = [-3, -1, 1, 3]
+    case 'c'
+        v = [-5, -3, -1, 1, 3, 5]
+    case 'd'
+        v = [-7, -5, -3, -1, 1, 3, 5, 7]
+    otherwise
+        disp('Introduceti litera pentru cazul dorit')
+end
+%secventa de mai sus da posibilitatea afisarii tuturor cazurilor
+%astfel in cat la rularea programului trebuie tastata litera dorita in cw
+
+y = zeros(size(v))
+%functia zeros creeaza un vector cu acelasi nr de elemente ca v format
+%numai din zerouri
+
+len = numel(v);
+
+%len retine numarul de elemente din v
+
+
+pas = 0:0.25:((len-1)*0.25)
+
+k = randperm(len);
+
+%k devine un vector cu numarul de elemente aflate in l, permutate in mod
+%random,exemplu daca l=4(cazul b) k poate fi 2,4,1,3 sau 4,2,3,1, etc
+
+y = v(k(1:len))
+
+%functia de mai sus ajuta la distribuirea nivelurilor in mod aleator
+
+stairs(pas, y), grid on, title('Dreptunghiular Multinivel')
+
+%functia pentru multinivel
